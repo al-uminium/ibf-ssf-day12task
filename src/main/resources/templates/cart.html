@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" th:href="styles.css">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Enter your cart items here.</h1>
+  <form action="#" method="post">
+    <div class="container">
+      <div>
+        <div>
+          <label for="name">Name: </label>
+          <input type="text" name="name" id="name" required>
+        </div>
+        <div>
+          <label for="quantity">Quantity: </label>
+          <input type="number" name="quantity" id="quantity" required>
+        </div>
+      </div>
+      <input class="input-button" type="submit" value="Submit">    
+    </div>
+
+    <table th:if="${not #lists.isEmpty(itemList)}">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Quantity</th>
+      </tr>
+      <tr th:each="item : ${itemList}">
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.quantity}"></td>
+      </tr>
+    </table>
+
+    <div th:each="item : ${itemList}">
+      <div>
+        <input type="hidden" name="name" id="name" th:value="${item.name}" required>
+        <input type="hidden" name="quantity" id="quantity" th:value="${item.quantity}" required>
+      </div>
+    </div>
+  </form>
+</body>
+</html>
