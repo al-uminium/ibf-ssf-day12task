@@ -14,7 +14,7 @@
 	<name>day12task</name>
 	<description>Shopping Cart using Hidden Form Field</description>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>19</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
